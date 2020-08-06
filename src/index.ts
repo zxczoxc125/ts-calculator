@@ -1,5 +1,4 @@
-import aa from './handler/abstract-handler';
+import Client from "./client/client";
 
-const a: number = 1;
-
-console.log(aa);
+const client: Client = new Client();
+client.main();

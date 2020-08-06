@@ -1,5 +1,6 @@
 class Request {
-  result: string;
+  private result: string;
+  private equation: string;
 
   getResult(): string {
     return this.result;
@@ -7,6 +8,14 @@ class Request {
 
   setResult(result: string): void {
     this.result = result;
+  }
+
+  getEquation(): string {
+    return this.equation;
+  }
+
+  setEquation(equation: string): void {
+    this.equation = equation;
   }
 }
 
