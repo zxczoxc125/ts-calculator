@@ -1,8 +1,8 @@
 import AbstractOperand from "./abstract-operand";
 
 class NumberOperand extends AbstractOperand {
-  constructor(input: number) {
-    super(input);
+  getDesc(): string {
+    return String(this.getInput());
   }
 }
 

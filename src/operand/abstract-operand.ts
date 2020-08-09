@@ -5,9 +5,11 @@ abstract class AbstractOperand {
     this.input = input;
   }
 
-  getInput() {
+  getInput(): number {
     return this.input;
   }
+
+  abstract getDesc(): string;
 }
 
 export default AbstractOperand;

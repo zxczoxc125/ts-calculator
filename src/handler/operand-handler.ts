@@ -8,7 +8,7 @@ class OperandHandler extends AbstractHandler {
   }
 
   handleRequest(request: Request): void {
-    request.setEquation(String(this.getOperand().getInput()));
+    request.setEquation(String(this.getOperand().getDesc()));
     super.handleRequest(request);
   }
 }
