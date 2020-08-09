@@ -1,12 +1,12 @@
 class Request {
-  private result: string;
+  private result: number;
   private equation: string;
 
-  getResult(): string {
+  getResult(): number {
     return this.result;
   }
 
-  setResult(result: string): void {
+  setResult(result: number): void {
     this.result = result;
   }
 

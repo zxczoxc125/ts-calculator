@@ -9,13 +9,16 @@ abstract class AbstractHandler {
     this.operand = opernad;
   }
 
-  setNext(next: AbstractHandler): AbstractHandler {
+  getOperand(): AbstractOperand {
+    return this.operand;
+  }
+
+  setNext(next: AbstractHandler): void {
     this.next = next;
-    return next;
   }
 
   handleRequest(request: Request): void {
-    const result: string = this.operate(request);
+    const result: number = this.operate(request);
     request.setResult(result);
 
     if (this.hasNext()) {
@@ -27,7 +30,7 @@ abstract class AbstractHandler {
     return !!this.next;
   }
 
-  abstract operate(request: Request): string;
+  abstract operate(request: Request): number;
 
 }
 

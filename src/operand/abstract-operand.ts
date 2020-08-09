@@ -1,7 +1,7 @@
 abstract class AbstractOperand {
-  private input: string | number;
+  private input: number;
 
-  constructor(input: string | number) {
+  constructor(input: number) {
     this.input = input;
   }
 
