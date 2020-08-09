@@ -13,6 +13,8 @@ class Client {
     this.test2();
     this.test3();
     this.test4();
+    this.test5();
+    this.test6();
   }
 
   // 5 + 10 = 15
@@ -21,6 +23,26 @@ class Client {
 
     const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
     const addOperationHandler : AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
+    
+    handlerList.push(operandHandler);
+    handlerList.push(addOperationHandler);
+
+    handlerList.forEach((handler, index) => {
+      handler.setNext(handlerList[index + 1]);
+    });
+    
+    const request: Request = new Request();
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // 5 - 10 = -5;
+  test2(): void {
+    const handlerList: AbstractHandler[] = [];
+
+    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
+    const addOperationHandler : SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(10));
     
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -75,20 +97,48 @@ class Client {
     console.log(request.getEquation(), '=', request.getResult());
   }
 
-  // 5 - 10 = -5;
-  test2(): void {
+  // 5 + 10 - 3 = 12
+  test5(): void {
     const handlerList: AbstractHandler[] = [];
-
-    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler : SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(10));
     
+    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand(5));
+    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
+    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(3));
+
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
+    handlerList.push(substractOperationHandler);
 
     handlerList.forEach((handler, index) => {
       handler.setNext(handlerList[index + 1]);
     });
+
+    const request: Request = new Request();
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // 5 + 10 - 3 * 5 / 10 = 6
+  test6(): void {
+    const handlerList: AbstractHandler[] = [];
     
+    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand(5));
+    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
+    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(3));
+    const multiplyOperationHandler: MultiplyOperationHandler = new MultiplyOperationHandler(new NumberOperand(5));
+    const devideOperationHandler: DevideOperationHandler = new DevideOperationHandler(new NumberOperand(10));
+
+    handlerList.push(operandHandler);
+    handlerList.push(addOperationHandler);
+    handlerList.push(substractOperationHandler);
+    handlerList.push(multiplyOperationHandler);
+    handlerList.push(devideOperationHandler);
+
+    handlerList.forEach((handler, index) => {
+      handler.setNext(handlerList[index + 1]);
+    });
+
     const request: Request = new Request();
     operandHandler.handleRequest(request);
 
