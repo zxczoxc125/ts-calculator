@@ -2,6 +2,10 @@ class Request {
   private result: number;
   private equation: string;
 
+  constructor() {
+    this.equation = '';
+  }
+
   getResult(): number {
     return this.result;
   }

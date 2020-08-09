@@ -26,7 +26,7 @@ class Client {
     const request: Request = new Request();
     operandHandler.handleRequest(request);
 
-    console.log('10 + 15 =', request.getResult());
+    console.log(request.getEquation(), '=', request.getResult());
   }
 
 }

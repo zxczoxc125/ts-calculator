@@ -6,6 +6,10 @@ class OperandHandler extends AbstractHandler {
     request.setResult(this.getOperand().getInput());
     return request.getResult();
   }
+
+  getOperator(): string {
+    return '';
+  }
 }
 
 export default  OperandHandler;
