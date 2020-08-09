@@ -1,5 +1,5 @@
 abstract class AbstractOperand {
-  private input: number;
+  protected input: number;
 
   constructor(input: number) {
     this.input = input;

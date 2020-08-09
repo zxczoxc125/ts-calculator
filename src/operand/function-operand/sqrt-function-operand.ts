@@ -2,11 +2,11 @@ import AbstractFunctionOperand from "./abstract-function-operand";
 
 class SqrtFunctionOperand extends AbstractFunctionOperand {
   getInput(): number {
-    return Math.sqrt(super.getInput());
+    return Math.sqrt(this.input);
   }
 
   getDesc(): string {
-    return `Sqrt(${super.getInput()})`;
+    return `Sqrt(${this.input})`;
   }
 }
 
