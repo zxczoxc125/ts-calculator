@@ -1,1 +1,1 @@
-# js-calculator
+# ts-calculator
