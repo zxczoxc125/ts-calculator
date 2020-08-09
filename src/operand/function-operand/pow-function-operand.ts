@@ -6,7 +6,7 @@ class PowFunctionOperand extends AbstractFunctionOperand {
   }
 
   getDesc(): string {
-    return `Pow(${this.operand.getValue()})`;
+    return `Pow(${this.operand.getDesc()})`;
   }
 }
 

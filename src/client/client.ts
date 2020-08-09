@@ -12,22 +12,25 @@ import FracFunctionOperand from "../operand/function-operand/frac-function-opera
 
 class Client {
   main(): void {
-    // 연산 handler 테스트
-    this.test1();
-    this.test2();
-    this.test3();
-    this.test4();
-    this.test5();
-    this.test6();
+    // // 연산 handler 테스트
+    // this.test1();
+    // this.test2();
+    // this.test3();
+    // this.test4();
+    // this.test5();
+    // this.test6();
 
-    console.log('=================================');
+    // console.log('=================================');
 
-    // 함수형 operand 테스트
-    this.operanTest1();
-    this.operanTest2();
-    this.operanTest3();
+    // // 함수형 operand 테스트
+    // this.operanTest1();
+    // this.operanTest2();
+    // this.operanTest3();
 
-    console.log('=================================');
+    // console.log('=================================');
+
+    // 함수형 operand 중첩 테스트
+    this.operanNestingTest1();
   }
 
   // 5 + 10 = 15
@@ -183,6 +186,18 @@ class Client {
     const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(new NumberOperand(4)));
     const request: Request = new Request();
 
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // Frac(Sqrt(4)) = 0.5
+  operanNestingTest1(): void {
+    const operandHandler: OperandHandler = new OperandHandler(
+      new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand(4)))
+    );
+
+    const request: Request = new Request();
     operandHandler.handleRequest(request);
 
     console.log(request.getEquation(), '=', request.getResult());

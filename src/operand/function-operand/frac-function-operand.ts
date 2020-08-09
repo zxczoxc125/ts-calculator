@@ -6,7 +6,7 @@ class FracFunctionOperand extends AbstractFunctionOperand {
   }
 
   getDesc(): string {
-    return `Frac(${this.operand.getValue()})`;
+    return `Frac(${this.operand.getDesc()})`;
   }
 }
 

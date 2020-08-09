@@ -6,7 +6,7 @@ class SqrtFunctionOperand extends AbstractFunctionOperand {
   }
 
   getDesc(): string {
-    return `Sqrt(${this.operand.getValue()})`;
+    return `Sqrt(${this.operand.getDesc()})`;
   }
 }
 
