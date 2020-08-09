@@ -20,10 +20,14 @@ class Client {
     // this.test5();
     // this.test6();
 
+    console.log('=================================');
+
     // 함수형 operand 테스트
     this.operanTest1();
     this.operanTest2();
     this.operanTest3();
+
+    console.log('=================================');
   }
 
   // 5 + 10 = 15
