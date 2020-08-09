@@ -7,6 +7,8 @@ import SubstractOperationHandler from "../handler/opration-handler/substract-ope
 import MultiplyOperationHandler from "../handler/opration-handler/multiply-operation-handler";
 import DevideOperationHandler from "../handler/opration-handler/devide-operation-handler";
 import SqrtFunctionOperand from "../operand/function-operand/sqrt-function-operand";
+import PowFunctionOperand from "../operand/function-operand/pow-function-operand";
+import FracFunctionOperand from "../operand/function-operand/frac-function-operand";
 
 class Client {
   main(): void {
@@ -20,6 +22,8 @@ class Client {
 
     // 함수형 operand 테스트
     this.operanTest1();
+    this.operanTest2();
+    this.operanTest3();
   }
 
   // 5 + 10 = 15
@@ -160,6 +164,25 @@ class Client {
     console.log(request.getEquation(), '=', request.getResult());
   }
 
+  // Pow(4) = 16
+  operanTest2(): void {
+    const operandHandler: OperandHandler = new OperandHandler(new PowFunctionOperand(4));
+    const request: Request = new Request();
+
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // Frac(4) = 0.25
+  operanTest3(): void {
+    const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(4));
+    const request: Request = new Request();
+
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
 }
 
 export default Client;
