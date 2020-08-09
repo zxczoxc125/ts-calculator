@@ -1,10 +1,10 @@
-import AbstractHandler from "./abstract-handler";
-import NumberOperand from "../operand/number-operand";
-import Request from "../request/request";
+import AbstractHandler from "../abstract-handler";
+import NumberOperand from "../../operand/number-operand";
+import Request from "../../request/request";
 
 abstract class AbstractOperationHandler extends AbstractHandler {
   constructor(operand: NumberOperand) {
-    super(operand);  
+    super(operand);
   }
 
   handleRequest(request: Request): void {

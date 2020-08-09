@@ -1,5 +1,5 @@
 import AbstractOperationHandler from "./abstract-operation-handler";
-import Request from "../request/request";
+import Request from "../../request/request";
 
 class AddOperationHandler extends AbstractOperationHandler {
   operate(request: Request): number {

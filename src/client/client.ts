@@ -1,8 +1,8 @@
 import NumberOperand from "../operand/number-operand";
 import AbstractHandler from "../handler/abstract-handler";
 import OperandHandler from "../handler/operand-handler";
-import AddOperationHandler from "../handler/add-operation-handler";
 import Request from "../request/request";
+import AddOperationHandler from "../handler/opration-handler/add-operation-handler";
 
 class Client {
   main(): void {
