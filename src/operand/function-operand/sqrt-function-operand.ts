@@ -1,12 +1,12 @@
 import AbstractFunctionOperand from "./abstract-function-operand";
 
 class SqrtFunctionOperand extends AbstractFunctionOperand {
-  getInput(): number {
-    return Math.sqrt(this.input);
+  getValue(): number {
+    return this.operand.getValue();
   }
 
   getDesc(): string {
-    return `Sqrt(${this.input})`;
+    return `Sqrt(${this.operand.getValue()})`;
   }
 }
 

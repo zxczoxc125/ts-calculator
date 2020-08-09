@@ -13,12 +13,12 @@ import FracFunctionOperand from "../operand/function-operand/frac-function-opera
 class Client {
   main(): void {
     // 연산 handler 테스트
-    // this.test1();
-    // this.test2();
-    // this.test3();
-    // this.test4();
-    // this.test5();
-    // this.test6();
+    this.test1();
+    this.test2();
+    this.test3();
+    this.test4();
+    this.test5();
+    this.test6();
 
     console.log('=================================');
 
@@ -160,7 +160,7 @@ class Client {
 
   // Sqrt(4) = 2
   operanTest1(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new SqrtFunctionOperand(4));
+    const operandHandler: OperandHandler = new OperandHandler(new SqrtFunctionOperand(new NumberOperand(4)));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);
@@ -170,7 +170,7 @@ class Client {
 
   // Pow(4) = 16
   operanTest2(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new PowFunctionOperand(4));
+    const operandHandler: OperandHandler = new OperandHandler(new PowFunctionOperand(new NumberOperand(4)));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);
@@ -180,7 +180,7 @@ class Client {
 
   // Frac(4) = 0.25
   operanTest3(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(4));
+    const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(new NumberOperand(4)));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);

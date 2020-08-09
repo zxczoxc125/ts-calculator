@@ -1,12 +1,12 @@
 import AbstractFunctionOperand from "./abstract-function-operand";
 
 class FracFunctionOperand extends AbstractFunctionOperand {
-  getInput(): number {
-    return 1 / this.input;
+  getValue(): number {
+    return 1 / this.operand.getValue();
   }
 
   getDesc(): string {
-    return `Frac(${this.input})`;
+    return `Frac(${this.operand.getValue()})`;
   }
 }
 

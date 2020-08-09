@@ -1,15 +1,7 @@
 abstract class AbstractOperand {
-  protected input: number;
-
-  constructor(input: number) {
-    this.input = input;
-  }
-
-  getInput(): number {
-    return this.input;
-  }
-
   abstract getDesc(): string;
+  
+  abstract getValue(): number;
 }
 
 export default AbstractOperand;

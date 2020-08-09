@@ -1,12 +1,12 @@
 import AbstractFunctionOperand from "./abstract-function-operand";
 
 class PowFunctionOperand extends AbstractFunctionOperand {
-  getInput(): number {
-    return Math.pow(this.input, 2);
+  getValue(): number {
+    return Math.pow(this.operand.getValue(), 2);
   }
 
   getDesc(): string {
-    return `Pow(${this.input})`;
+    return `Pow(${this.operand.getValue()})`;
   }
 }
 
