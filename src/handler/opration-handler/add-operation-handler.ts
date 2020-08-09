@@ -4,7 +4,7 @@ import Request from "../../request/request";
 class AddOperationHandler extends AbstractOperationHandler {
   operate(request: Request): number {
     const prevResult: number = request.getResult();
-    return this.getOperand().getInput() + prevResult;
+    return prevResult + this.getOperand().getInput();
   }
 
   getOperator(): string {
