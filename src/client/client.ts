@@ -6,15 +6,20 @@ import AddOperationHandler from "../handler/opration-handler/add-operation-handl
 import SubstractOperationHandler from "../handler/opration-handler/substract-operation-handler";
 import MultiplyOperationHandler from "../handler/opration-handler/multiply-operation-handler";
 import DevideOperationHandler from "../handler/opration-handler/devide-operation-handler";
+import SqrtFunctionOperand from "../operand/function-operand/sqrt-function-operand";
 
 class Client {
   main(): void {
-    this.test1();
-    this.test2();
-    this.test3();
-    this.test4();
-    this.test5();
-    this.test6();
+    // 연산 handler 테스트
+    // this.test1();
+    // this.test2();
+    // this.test3();
+    // this.test4();
+    // this.test5();
+    // this.test6();
+
+    // 함수형 operand 테스트
+    this.operanTest1();
   }
 
   // 5 + 10 = 15
@@ -140,6 +145,16 @@ class Client {
     });
 
     const request: Request = new Request();
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // Sqrt(4) = 2
+  operanTest1(): void {
+    const operandHandler: OperandHandler = new OperandHandler(new SqrtFunctionOperand(4));
+    const request: Request = new Request();
+
     operandHandler.handleRequest(request);
 
     console.log(request.getEquation(), '=', request.getResult());
