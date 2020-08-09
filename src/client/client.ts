@@ -31,6 +31,7 @@ class Client {
 
     // 함수형 operand 중첩 테스트
     this.operanNestingTest1();
+    this.operanNestingTest2();
   }
 
   // 5 + 10 = 15
@@ -195,6 +196,18 @@ class Client {
   operanNestingTest1(): void {
     const operandHandler: OperandHandler = new OperandHandler(
       new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand(4)))
+    );
+
+    const request: Request = new Request();
+    operandHandler.handleRequest(request);
+
+    console.log(request.getEquation(), '=', request.getResult());
+  }
+
+  // Pow(Frac(Sqrt(4))) = 0.0625
+  operanNestingTest2(): void {
+    const operandHandler: OperandHandler = new OperandHandler(
+      new PowFunctionOperand(new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand(4))))
     );
 
     const request: Request = new Request();
