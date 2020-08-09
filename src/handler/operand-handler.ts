@@ -7,8 +7,9 @@ class OperandHandler extends AbstractHandler {
     return request.getResult();
   }
 
-  getOperator(): string {
-    return '';
+  handleRequest(request: Request): void {
+    request.setEquation(String(this.getOperand().getInput()));
+    super.handleRequest(request);
   }
 }
 

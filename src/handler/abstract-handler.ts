@@ -21,9 +21,6 @@ abstract class AbstractHandler {
     const result: number = this.operate(request);
     request.setResult(result);
 
-    const prevEqation: string = request.getEquation();
-    request.setEquation(`${prevEqation} ${this.getOperator()} ${this.getOperand().getInput()}`);
-
     if (this.hasNext()) {
       this.next.handleRequest(request);
     }
@@ -34,8 +31,6 @@ abstract class AbstractHandler {
   }
 
   abstract operate(request: Request): number;
-
-  abstract getOperator(): string;
 
 }
 
