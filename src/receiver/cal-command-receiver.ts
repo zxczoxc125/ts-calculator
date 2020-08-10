@@ -20,7 +20,11 @@ class CalCommandReceiver {
   }
 
   actionOperator(actionCommand: string): void {
-    console.log(`actionOperator actionCommand = ${actionCommand}`);
+    console.log(`actionOperator actionCommand :: ${actionCommand}`);
+  }
+
+  actionNumber(actionCommand: string) {
+    console.log(`actionNumber actionCommand :: ${actionCommand}`);
   }
 }
 

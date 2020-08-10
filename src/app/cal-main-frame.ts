@@ -5,6 +5,11 @@ import CalModel from "../model/cal-model";
 import AbstractCommand from "../command/abstract-command";
 import AddOperationCommand from "../command/add-operation-command";
 import CalCommandReceiver from "../receiver/cal-command-receiver";
+import SubstractOperationCommand from "../command/substract-operation-command";
+import MultiplyOperationCommand from "../command/multiply-operation-command";
+import DevideOperationCommand from "../command/devide-operation-command";
+import EqualOperationCommand from "../command/equal-operation-command";
+import NumberCommand from "../command/number-command";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -49,15 +54,15 @@ class CalMainFrame {
       if (actionCommand === '+') {
         calCommand = new AddOperationCommand(calCommandReceiver);
       } else if (actionCommand === '-') {
-
+        calCommand = new SubstractOperationCommand(calCommandReceiver);
       } else if (actionCommand === '*') {
-
+        calCommand = new MultiplyOperationCommand(calCommandReceiver);
       } else if (actionCommand === '/') {
-
+        calCommand = new DevideOperationCommand(calCommandReceiver);
       } else if (actionCommand === '=') {
-
+        calCommand = new EqualOperationCommand(calCommandReceiver);
       } else {
-
+        calCommand = new NumberCommand(calCommandReceiver, actionCommand);
       }
 
       if (calCommand) {

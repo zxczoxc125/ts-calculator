@@ -10,7 +10,7 @@ class NumberCommand extends AbstractCommand {
   }
 
   execute(): void {
-    
+    this.receiver.actionNumber(this.actionCommand);
   }
 }
 
