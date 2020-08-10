@@ -1,7 +1,8 @@
 class InputPannel {
-  initLayout(labels: string[] = [], panel: HTMLDivElement): void {
+  initLayout(labels: string[] = [], panel: HTMLDivElement, fn: EventListener): void {
     labels.forEach(label => {
       const button: HTMLButtonElement = this.createButton(label);
+      button.addEventListener('click', fn);
       panel.appendChild(button);
     });
   }
