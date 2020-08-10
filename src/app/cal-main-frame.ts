@@ -1,6 +1,7 @@
 import CalDisplayView from "./cal-display-view";
 import CalEquationView from "./cal-equation-view";
 import InputPannel from "./input-pannel";
+import CalModel from "../model/cal-model";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -48,6 +49,14 @@ class CalMainFrame {
 
     const inputPanel6: InputPannel = new InputPannel();
     inputPanel6.initLayout(['+-', '0', '.', '='], panel6);
+
+    const calModel: CalModel = new CalModel();
+
+    displayView.setCalModel(calModel);
+    equationView.setCalModel(calModel);
+
+    displayView.redraw();
+    equationView.redraw();
   }
 }
 
