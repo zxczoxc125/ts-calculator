@@ -28,7 +28,7 @@ class CalCommandReceiver {
   }
 
   actionOperator(actionCommand: string): void {
-    // FIXME:
+    // FIXME: if
     if (actionCommand === '+') {
       this.calModel.addHandler(new AddOperationHandler(null));
     } else if (actionCommand === '-') {
@@ -43,16 +43,33 @@ class CalCommandReceiver {
   actionNumber(actionCommand: string) {
     const lastHandler: AbstractHandler = this.calModel.getLastHandler();
 
-    // FIXME:
+    // FIXME: instanceof
     if (lastHandler instanceof AbstractOperationHandler) {
-      // const newInput: number = lastHandler.getOperand().
+      this.calModel.addHandler(new OperandHandler(
+        new NumberOperand(Number(actionCommand))
+      ));
     } else {
-      this.calModel.addHandler(new OperandHandler(new NumberOperand(Number(actionCommand))));
+      const lastValue: number = lastHandler.getOperand().getValue();
+      const newValue: number = Number(String(lastValue) + String(actionCommand));
+
+      this.calModel.changeLastHandler(new OperandHandler(
+        new NumberOperand(Number(newValue))
+      ));
     }
   }
 
   actionEqual() {
-    this.calDisplayView.redraw();
+    const result: number = this.calModel.getResult();
+    const operandHandler: OperandHandler = new OperandHandler(
+      new NumberOperand(result)
+    );
+
+    this.calModel.initHandler();
+    this.calModel.addHandler(operandHandler);
+    
+    console.log(result)
+
+    return result;
   }
 }
 

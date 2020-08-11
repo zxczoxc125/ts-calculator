@@ -23,12 +23,19 @@ class CalModel {
   }
 
   initHandler(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand(null));
+    const operandHandler: OperandHandler
+      = new OperandHandler(new NumberOperand(0));
     this.handlerList = [operandHandler];
   }
 
   getLastHandler(): AbstractHandler {
     return this.handlerList[this.handlerList.length - 1];
+  }
+
+  changeLastHandler(newAbstractHandler: AbstractHandler): void {
+    this.handlerList.pop();
+    this.handlerList.push(newAbstractHandler);
+    this.handlerList[this.handlerList.length - 1].setNext(newAbstractHandler);
   }
 
   makeChain(): void {
@@ -42,16 +49,8 @@ class CalModel {
 
     const request: Request = new Request();
     this.handlerList[0].handleRequest(request);
-
-    this.initHandler();
-
-    const result: number = request.getResult();
-    const operandHandler: OperandHandler = new OperandHandler(
-      new NumberOperand(result)
-    );
-
-    this.addHandler(operandHandler);
-    return result;
+    
+    return request.getResult();
   }
 }
 

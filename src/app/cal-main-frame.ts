@@ -51,7 +51,7 @@ class CalMainFrame {
 
       let calCommand: AbstractCommand;
 
-      // FIXME:
+      // FIXME: if
       if (actionCommand === '+') {
         calCommand = new AddOperationCommand(calCommandReceiver);
       } else if (actionCommand === '-') {
