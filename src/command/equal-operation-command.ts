@@ -2,7 +2,7 @@ import AbstractCommand from "./abstract-command";
 
 class EqualOperationCommand extends AbstractCommand {
   execute(): void {
-    this.receiver.actionOperator('=');
+    this.receiver.actionEqual();
   }
 }
 

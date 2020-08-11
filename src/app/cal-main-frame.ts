@@ -40,17 +40,18 @@ class CalMainFrame {
     const displayView: CalDisplayView = new CalDisplayView(displayCanvas);
     const equationView: CalEquationView = new CalEquationView(equationCanvas);
 
+    const calCommandReceiver: CalCommandReceiver = new CalCommandReceiver();
+
+    calCommandReceiver.setCalDisplayView(displayView);
+    calCommandReceiver.setCalEquationView(equationView);
+
     const fn: EventListener = function () {
       const element: HTMLElement = this;
       const actionCommand: string = element.textContent || element.innerText;
 
-      const calCommandReceiver: CalCommandReceiver = new CalCommandReceiver();
-
-      calCommandReceiver.setCalDisplayView(displayView);
-      calCommandReceiver.setCalEquationView(equationView);
-
       let calCommand: AbstractCommand;
 
+      // FIXME:
       if (actionCommand === '+') {
         calCommand = new AddOperationCommand(calCommandReceiver);
       } else if (actionCommand === '-') {
@@ -95,6 +96,8 @@ class CalMainFrame {
 
     displayView.redraw();
     equationView.redraw();
+
+    calCommandReceiver.setCalModel(calModel);
   }
 }
 

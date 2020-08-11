@@ -12,6 +12,10 @@ class NumberOperand extends AbstractOperand {
     return this.input;
   }
 
+  setInput(input: number): void {
+    this.input = input;
+  }
+
   getValue(): number {
     return this.input;
   }
