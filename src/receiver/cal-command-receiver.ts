@@ -31,7 +31,7 @@ class CalCommandReceiver {
   actionOperator(actionCommand: string): void {
     const lastHandler: AbstractHandler = this.calModel.getLastHandler();
 
-    if (lastHandler instanceof AbstractOperationHandler) {
+    if (lastHandler instanceof AbstractOperationHandler && !lastHandler.hasOperand()) {
       this.calModel.removeLastHandler();
     }
 
