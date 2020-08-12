@@ -3,7 +3,7 @@ import Request from "../request/request";
 
 class OperandHandler extends AbstractHandler {
   operate(request: Request): number {
-    request.setResult(this.getOperand().getValue());
+    request.setResult(Number(this.getOperand().getValue()));
     return request.getResult();
   }
 

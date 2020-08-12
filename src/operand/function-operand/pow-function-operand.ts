@@ -1,8 +1,8 @@
 import AbstractFunctionOperand from "./abstract-function-operand";
 
 class PowFunctionOperand extends AbstractFunctionOperand {
-  getValue(): number {
-    return Math.pow(this.operand.getValue(), 2);
+  getValue(): string {
+    return String(Math.pow(Number(this.operand.getValue()), 2));
   }
 
   getDesc(): string {

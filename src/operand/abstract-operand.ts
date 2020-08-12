@@ -1,7 +1,7 @@
 abstract class AbstractOperand {
   abstract getDesc(): string;
   
-  abstract getValue(): number;
+  abstract getValue(): string;
 }
 
 export default AbstractOperand;

@@ -16,8 +16,8 @@ class NumberOperand extends AbstractOperand {
     this.input = input;
   }
 
-  getValue(): number {
-    return Number(this.input);
+  getValue(): string {
+    return Number(this.input) ? this.input : '';
   }
 
   getDesc(): string {

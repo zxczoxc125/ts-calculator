@@ -43,7 +43,6 @@ class CalModel {
   changeLastHandler(newAbstractHandler: AbstractHandler): void {
     this.handlerList.pop();
     this.handlerList.push(newAbstractHandler);
-    this.handlerList[this.handlerList.length - 1].setNext(newAbstractHandler);
   }
 
   makeChain(): void {

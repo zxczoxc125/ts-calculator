@@ -1,8 +1,8 @@
 import AbstractFunctionOperand from "./abstract-function-operand";
 
 class SqrtFunctionOperand extends AbstractFunctionOperand {
-  getValue(): number {
-    return this.operand.getValue();
+  getValue(): string {
+    return String(Math.sqrt(Number(this.operand.getValue())));
   }
 
   getDesc(): string {

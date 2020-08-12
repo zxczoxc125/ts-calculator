@@ -10,6 +10,7 @@ import MultiplyOperationHandler from "../handler/opration-handler/multiply-opera
 import DevideOperationHandler from "../handler/opration-handler/devide-operation-handler";
 import AbstractOperationHandler from "../handler/opration-handler/abstract-operation-handler";
 import Request from "../request/request";
+import { getStringNumber } from "../util/util";
 
 class CalCommandReceiver {
   private calDisplayView: CalDisplayView;
@@ -54,13 +55,21 @@ class CalCommandReceiver {
     if (lastHandler instanceof AbstractOperationHandler) {
       lastHandler.setOperand(new NumberOperand(actionCommand));
     } else {
-      const lastValue: number = lastHandler.getOperand().getValue();
-      const newValue: string = String(lastValue || '') + String(actionCommand);
+      const lastValue: string = lastHandler.getOperand().getValue();
+      const newValue: string = getStringNumber(lastValue, actionCommand);
 
       this.calModel.changeLastHandler(new OperandHandler(
         new NumberOperand(newValue)
       ));
     }
+
+
+
+
+    // FIXME: 두번째 이상 연산자 소수점 가능하게
+
+
+
 
     this.calEquationView.redraw();
   }
