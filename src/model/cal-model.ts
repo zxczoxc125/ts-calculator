@@ -28,6 +28,14 @@ class CalModel {
     this.handlerList = [operandHandler];
   }
 
+  removeLastHandler(): boolean {
+    if (this.handlerList.length > 1) {
+      this.handlerList.pop();
+      return true;
+    }
+    return false;
+  }
+
   getLastHandler(): AbstractHandler {
     return this.handlerList[this.handlerList.length - 1];
   }

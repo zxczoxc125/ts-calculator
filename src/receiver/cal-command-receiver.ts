@@ -29,6 +29,12 @@ class CalCommandReceiver {
   }
 
   actionOperator(actionCommand: string): void {
+    const lastHandler: AbstractHandler = this.calModel.getLastHandler();
+
+    if (lastHandler instanceof AbstractOperationHandler) {
+      this.calModel.removeLastHandler();
+    }
+
     // FIXME: if
     if (actionCommand === '+') {
       this.calModel.addHandler(new AddOperationHandler(null));
