@@ -7,7 +7,7 @@ class Request {
   }
 
   getResult(): number {
-    return this.result || 0;
+    return this.result;
   }
 
   setResult(result: number): void {
