@@ -52,15 +52,13 @@ class CalCommandReceiver {
 
     // FIXME: instanceof
     if (lastHandler instanceof AbstractOperationHandler) {
-      lastHandler.setOperand(
-        new NumberOperand(Number(actionCommand))
-      );
+      lastHandler.setOperand(new NumberOperand(actionCommand));
     } else {
       const lastValue: number = lastHandler.getOperand().getValue();
       const newValue: string = String(lastValue || '') + String(actionCommand);
 
       this.calModel.changeLastHandler(new OperandHandler(
-        new NumberOperand(Number(newValue))
+        new NumberOperand(newValue)
       ));
     }
 
@@ -70,7 +68,7 @@ class CalCommandReceiver {
   actionEqual(): void {
     const resultRequest: Request = this.calModel.getResultRequest();
     const newHandler: OperandHandler = new OperandHandler(
-      new NumberOperand(resultRequest.getResult())
+      new NumberOperand(String(resultRequest.getResult()))
     );
 
     this.calModel.initHandler();

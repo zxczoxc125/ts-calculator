@@ -38,8 +38,8 @@ class Client {
   test1(): void {
     const handlerList: AbstractHandler[] = [];
 
-    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler : AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
+    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler : AddOperationHandler = new AddOperationHandler(new NumberOperand('10'));
     
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -58,8 +58,8 @@ class Client {
   test2(): void {
     const handlerList: AbstractHandler[] = [];
 
-    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler : SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(10));
+    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler : SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand('10'));
     
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -78,8 +78,8 @@ class Client {
   test3(): void {
     const handlerList: AbstractHandler[] = [];
 
-    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler : MultiplyOperationHandler = new MultiplyOperationHandler(new NumberOperand(10));
+    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler : MultiplyOperationHandler = new MultiplyOperationHandler(new NumberOperand('10'));
     
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -98,8 +98,8 @@ class Client {
   test4(): void {
     const handlerList: AbstractHandler[] = [];
 
-    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler : DevideOperationHandler = new DevideOperationHandler(new NumberOperand(10));
+    const operandHandler : OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler : DevideOperationHandler = new DevideOperationHandler(new NumberOperand('10'));
     
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -118,9 +118,9 @@ class Client {
   test5(): void {
     const handlerList: AbstractHandler[] = [];
     
-    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
-    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(3));
+    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand('10'));
+    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand('3'));
 
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -140,11 +140,11 @@ class Client {
   test6(): void {
     const handlerList: AbstractHandler[] = [];
     
-    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand(5));
-    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand(10));
-    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand(3));
-    const multiplyOperationHandler: MultiplyOperationHandler = new MultiplyOperationHandler(new NumberOperand(5));
-    const devideOperationHandler: DevideOperationHandler = new DevideOperationHandler(new NumberOperand(10));
+    const operandHandler: OperandHandler = new OperandHandler(new NumberOperand('5'));
+    const addOperationHandler: AddOperationHandler = new AddOperationHandler(new NumberOperand('10'));
+    const substractOperationHandler: SubstractOperationHandler = new SubstractOperationHandler(new NumberOperand('3'));
+    const multiplyOperationHandler: MultiplyOperationHandler = new MultiplyOperationHandler(new NumberOperand('5'));
+    const devideOperationHandler: DevideOperationHandler = new DevideOperationHandler(new NumberOperand('10'));
 
     handlerList.push(operandHandler);
     handlerList.push(addOperationHandler);
@@ -164,7 +164,7 @@ class Client {
 
   // Sqrt(4) = 2
   operanTest1(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new SqrtFunctionOperand(new NumberOperand(4)));
+    const operandHandler: OperandHandler = new OperandHandler(new SqrtFunctionOperand(new NumberOperand('4')));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);
@@ -174,7 +174,7 @@ class Client {
 
   // Pow(4) = 16
   operanTest2(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new PowFunctionOperand(new NumberOperand(4)));
+    const operandHandler: OperandHandler = new OperandHandler(new PowFunctionOperand(new NumberOperand('4')));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);
@@ -184,7 +184,7 @@ class Client {
 
   // Frac(4) = 0.25
   operanTest3(): void {
-    const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(new NumberOperand(4)));
+    const operandHandler: OperandHandler = new OperandHandler(new FracFunctionOperand(new NumberOperand('4')));
     const request: Request = new Request();
 
     operandHandler.handleRequest(request);
@@ -195,7 +195,7 @@ class Client {
   // Frac(Sqrt(4)) = 0.5
   operanNestingTest1(): void {
     const operandHandler: OperandHandler = new OperandHandler(
-      new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand(4)))
+      new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand('4')))
     );
 
     const request: Request = new Request();
@@ -207,7 +207,7 @@ class Client {
   // Pow(Frac(Sqrt(4))) = 0.0625
   operanNestingTest2(): void {
     const operandHandler: OperandHandler = new OperandHandler(
-      new PowFunctionOperand(new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand(4))))
+      new PowFunctionOperand(new FracFunctionOperand(new SqrtFunctionOperand(new NumberOperand('4'))))
     );
 
     const request: Request = new Request();

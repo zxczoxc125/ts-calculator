@@ -1,23 +1,23 @@
 import AbstractOperand from "./abstract-operand";
 
 class NumberOperand extends AbstractOperand {
-  protected input: number;
+  protected input: string;
 
-  constructor(input: number) {
+  constructor(input: string) {
     super();
     this.input = input;
   }
 
-  getInput(): number {
+  getInput(): string {
     return this.input;
   }
 
-  setInput(input: number): void {
+  setInput(input: string): void {
     this.input = input;
   }
 
   getValue(): number {
-    return this.input;
+    return Number(this.input);
   }
 
   getDesc(): string {
