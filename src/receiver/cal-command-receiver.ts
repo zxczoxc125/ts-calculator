@@ -57,6 +57,8 @@ class CalCommandReceiver {
         new NumberOperand(Number(newValue))
       ));
     }
+
+    this.calEquationView.redraw();
   }
 
   actionEqual(): void {
@@ -67,6 +69,9 @@ class CalCommandReceiver {
 
     this.calModel.initHandler();
     this.calModel.changeLastHandler(newHandler);
+
+    this.calEquationView.redraw();
+    this.calDisplayView.redraw();
   }
 }
 
