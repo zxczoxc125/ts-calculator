@@ -11,11 +11,11 @@ class CalModel {
   }
 
   getDisplayText(): string {
-    return String(this.getResult());
+    return String(this.getResultRequest().getResult());
   }
 
   getEquationText(): string {
-    return '';
+    return this.getResultRequest().getEquation();
   }
 
   addHandler(abstractHandler: AbstractHandler): void {
@@ -44,14 +44,15 @@ class CalModel {
     });
   }
 
-  getResult(): number {
+  getResultRequest(): Request {
     this.makeChain();
 
     const request: Request = new Request();
     this.handlerList[0].handleRequest(request);
-    
-    return request.getResult();
+
+    return request;
   }
+
 }
 
 export default CalModel;

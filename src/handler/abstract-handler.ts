@@ -13,21 +13,31 @@ abstract class AbstractHandler {
     return this.operand;
   }
 
+  setOperand(opernad: AbstractOperand): void {
+    this.operand = opernad;
+  }
+
   setNext(next: AbstractHandler): void {
     this.next = next;
   }
 
   handleRequest(request: Request): void {
-    const result: number = this.operate(request);
-    request.setResult(result);
+    if (this.hasOperand()) {
+      const result: number = this.operate(request);
+      request.setResult(result);
 
-    if (this.hasNext()) {
-      this.next.handleRequest(request);
+      if (this.hasNext()) {
+        this.next.handleRequest(request);
+      }
     }
   }
 
   hasNext(): boolean {
     return !!this.next;
+  }
+
+  hasOperand(): boolean {
+    return !!this.operand;
   }
 
   abstract operate(request: Request): number;

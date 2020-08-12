@@ -69,6 +69,9 @@ class CalMainFrame {
       if (calCommand) {
         calCommand.execute();
       }
+
+      displayView.redraw();
+      equationView.redraw();
     }
 
     const inputPanel1: InputPannel = new InputPannel();

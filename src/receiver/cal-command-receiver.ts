@@ -9,6 +9,7 @@ import SubstractOperationHandler from "../handler/opration-handler/substract-ope
 import MultiplyOperationHandler from "../handler/opration-handler/multiply-operation-handler";
 import DevideOperationHandler from "../handler/opration-handler/devide-operation-handler";
 import AbstractOperationHandler from "../handler/opration-handler/abstract-operation-handler";
+import Request from "../request/request";
 
 class CalCommandReceiver {
   private calDisplayView: CalDisplayView;
@@ -40,14 +41,14 @@ class CalCommandReceiver {
     }
   }
 
-  actionNumber(actionCommand: string) {
+  actionNumber(actionCommand: string): void {
     const lastHandler: AbstractHandler = this.calModel.getLastHandler();
 
     // FIXME: instanceof
     if (lastHandler instanceof AbstractOperationHandler) {
-      this.calModel.addHandler(new OperandHandler(
+      lastHandler.setOperand(
         new NumberOperand(Number(actionCommand))
-      ));
+      );
     } else {
       const lastValue: number = lastHandler.getOperand().getValue();
       const newValue: number = Number(String(lastValue) + String(actionCommand));
@@ -58,18 +59,14 @@ class CalCommandReceiver {
     }
   }
 
-  actionEqual() {
-    const result: number = this.calModel.getResult();
-    const operandHandler: OperandHandler = new OperandHandler(
-      new NumberOperand(result)
+  actionEqual(): void {
+    const resultRequest: Request = this.calModel.getResultRequest();
+    const newHandler: OperandHandler = new OperandHandler(
+      new NumberOperand(resultRequest.getResult())
     );
 
     this.calModel.initHandler();
-    this.calModel.addHandler(operandHandler);
-    
-    console.log(result)
-
-    return result;
+    this.calModel.changeLastHandler(newHandler);
   }
 }
 
