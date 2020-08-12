@@ -57,7 +57,7 @@ class CalCommandReceiver {
       );
     } else {
       const lastValue: number = lastHandler.getOperand().getValue();
-      const newValue: number = Number(String(lastValue) + String(actionCommand));
+      const newValue: string = String(lastValue || '') + String(actionCommand);
 
       this.calModel.changeLastHandler(new OperandHandler(
         new NumberOperand(Number(newValue))
