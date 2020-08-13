@@ -10,6 +10,7 @@ import MultiplyOperationCommand from "../command/multiply-operation-command";
 import DevideOperationCommand from "../command/devide-operation-command";
 import EqualOperationCommand from "../command/equal-operation-command";
 import NumberCommand from "../command/number-command";
+import StateView from "./state-view";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -17,8 +18,10 @@ class CalMainFrame {
 
     const equationCanvas: HTMLCanvasElement = document.createElement('canvas');
     const displayCanvas: HTMLCanvasElement = document.createElement('canvas');
+    const stateCanvas : HTMLCanvasElement = document.createElement('canvas');
     const div1: HTMLDivElement = document.createElement('div');
     const div2: HTMLDivElement = document.createElement('div');
+    const div3: HTMLDivElement = document.createElement('div');
     const panel1: HTMLDivElement = document.createElement('div');
     const panel2: HTMLDivElement = document.createElement('div');
     const panel3: HTMLDivElement = document.createElement('div');
@@ -28,6 +31,7 @@ class CalMainFrame {
 
     div1.appendChild(equationCanvas);
     div2.appendChild(displayCanvas);
+    div3.appendChild(stateCanvas);
     calculator.appendChild(div1);
     calculator.appendChild(div2);
     calculator.appendChild(panel1);
@@ -36,14 +40,17 @@ class CalMainFrame {
     calculator.appendChild(panel4);
     calculator.appendChild(panel5);
     calculator.appendChild(panel6);
+    calculator.appendChild(div3);
 
     const displayView: CalDisplayView = new CalDisplayView(displayCanvas);
     const equationView: CalEquationView = new CalEquationView(equationCanvas);
+    const stateView: StateView = new StateView(stateCanvas);
 
     const calCommandReceiver: CalCommandReceiver = new CalCommandReceiver();
 
     calCommandReceiver.setCalDisplayView(displayView);
     calCommandReceiver.setCalEquationView(equationView);
+    calCommandReceiver.setStateView(stateView);
 
     const fn: EventListener = function () {
       const element: HTMLElement = this;
@@ -96,6 +103,7 @@ class CalMainFrame {
 
     displayView.redraw();
     equationView.redraw();
+    stateView.redraw();
 
     calCommandReceiver.setCalModel(calModel);
   }

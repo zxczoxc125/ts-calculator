@@ -11,10 +11,12 @@ import DevideOperationHandler from "../handler/opration-handler/devide-operation
 import AbstractOperationHandler from "../handler/opration-handler/abstract-operation-handler";
 import Request from "../request/request";
 import { getStringNumber } from "../util/util";
+import StateView from "../app/state-view";
 
 class CalCommandReceiver {
   private calDisplayView: CalDisplayView;
   private calEquationView: CalEquationView;
+  private stateView: StateView;
   private calModel: CalModel;
 
   setCalDisplayView(calDisplayView: CalDisplayView): void {
@@ -23,6 +25,10 @@ class CalCommandReceiver {
 
   setCalEquationView(calEquationView: CalEquationView): void {
     this.calEquationView = calEquationView;
+  }
+
+  setStateView(stateView: StateView): void {
+    this.stateView = stateView;
   }
 
   setCalModel(calmodel: CalModel): void {
