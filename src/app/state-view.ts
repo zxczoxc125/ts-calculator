@@ -26,7 +26,7 @@ class StateView {
     this.ctx.fillStyle = 'white';
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    const displayText = this.calModel.getDisplayText();
+    const displayText = this.calModel.getStateText();
     
     this.ctx.fillStyle = 'black';
     this.ctx.font = CalConstants.DEFAULT_FONT;

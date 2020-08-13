@@ -15,12 +15,7 @@ import StateView from "../app/state-view";
 import IContext from "../state/i-context";
 import State from "../state/state";
 
-class CalCommandReceiver implements IContext {
-  private calDisplayView: CalDisplayView;
-  private calEquationView: CalEquationView;
-  private stateView: StateView;
-  private calModel: CalModel;
-
+class CalCommandReceiver extends IContext {
   setCalDisplayView(calDisplayView: CalDisplayView): void {
     this.calDisplayView = calDisplayView;
   }
@@ -57,30 +52,7 @@ class CalCommandReceiver implements IContext {
   }
 
   actionNumber(actionCommand: string): void {
-    const lastHandler: AbstractHandler = this.calModel.getLastHandler();
-
-    // FIXME: instanceof
-    if (lastHandler instanceof AbstractOperationHandler) {
-      if (lastHandler.getOperand()) {
-        const lastValue: string = lastHandler.getOperand().getValue();
-        const newValue: string = getStringNumber(lastValue, actionCommand);
-
-        this.calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
-          new NumberOperand(newValue)
-        ));
-      } else {
-        lastHandler.setOperand(new NumberOperand(actionCommand));
-      }
-    } else {
-      const lastValue: string = lastHandler.getOperand().getValue();
-      const newValue: string = getStringNumber(lastValue, actionCommand);
-
-      this.calModel.changeLastHandler(new OperandHandler(
-        new NumberOperand(newValue)
-      ));
-    }
-
-    this.calEquationView.redraw();
+    this.calModel.getState().handleNumber(this, actionCommand);
   }
 
   actionEqual(): void {
@@ -98,7 +70,9 @@ class CalCommandReceiver implements IContext {
 
   changeState(state: State): void {
     this.calModel.setState(state);
+    this.stateView.redraw();
   }
+
 }
 
 export default CalCommandReceiver;

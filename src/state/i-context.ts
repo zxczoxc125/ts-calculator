@@ -4,22 +4,43 @@ import CalEquationView from "../app/cal-equation-view";
 import StateView from "../app/state-view";
 import CalModel from "../model/cal-model";
 
-interface IContext {
-  changeState(state: State): void;
+abstract class IContext {
+  protected calDisplayView: CalDisplayView;
+  protected calEquationView: CalEquationView;
+  protected stateView: StateView;
+  protected calModel: CalModel;
 
-  setCalDisplayView(calDisplayView: CalDisplayView): void;
+  abstract changeState(state: State): void;
+
+  abstract setCalDisplayView(calDisplayView: CalDisplayView): void;
   
-  setCalEquationView(calEquationView: CalEquationView): void;
+  abstract setCalEquationView(calEquationView: CalEquationView): void;
   
-  setStateView(stateView: StateView): void;
+  abstract setStateView(stateView: StateView): void;
   
-  setCalModel(calmodel: CalModel): void;
+  abstract setCalModel(calmodel: CalModel): void;
   
-  actionOperator(actionCommand: string): void;
+  abstract actionOperator(actionCommand: string): void;
   
-  actionNumber(actionCommand: string): void;
+  abstract actionNumber(actionCommand: string): void;
   
-  actionEqual(): void;
+  abstract actionEqual(): void;
+
+  getCalDisplayView(): CalDisplayView {
+    return this.calDisplayView;
+  }
+
+  getCalEquationView(): CalEquationView {
+    return this.calEquationView;
+  }
+
+  getStateView(): StateView {
+    return this.stateView;
+  }
+
+  getCalModel(): CalModel {
+    return this.calModel;
+  }
 }
 
 export default IContext;

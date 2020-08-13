@@ -11,6 +11,7 @@ import DevideOperationCommand from "../command/devide-operation-command";
 import EqualOperationCommand from "../command/equal-operation-command";
 import NumberCommand from "../command/number-command";
 import StateView from "./state-view";
+import InputState from "../state/input-state";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -100,12 +101,14 @@ class CalMainFrame {
 
     displayView.setCalModel(calModel);
     equationView.setCalModel(calModel);
+    stateView.setCalModel(calModel);
 
     displayView.redraw();
     equationView.redraw();
     stateView.redraw();
 
     calCommandReceiver.setCalModel(calModel);
+    calCommandReceiver.changeState(InputState.getInstance());
   }
 }
 

@@ -28,6 +28,13 @@ class CalModel {
     return this.getResultRequest().getEquation();
   }
 
+  getStateText(): string {
+    if (this.state) {
+      return this.state.getStateText();
+    }
+    return '';
+  }
+
   addHandler(abstractHandler: AbstractHandler): void {
     this.handlerList.push(abstractHandler);
   }
