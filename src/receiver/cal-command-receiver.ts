@@ -12,8 +12,10 @@ import AbstractOperationHandler from "../handler/opration-handler/abstract-opera
 import Request from "../request/request";
 import { getStringNumber } from "../util/util";
 import StateView from "../app/state-view";
+import IContext from "../state/i-context";
+import State from "../state/state";
 
-class CalCommandReceiver {
+class CalCommandReceiver implements IContext {
   private calDisplayView: CalDisplayView;
   private calEquationView: CalEquationView;
   private stateView: StateView;
@@ -92,6 +94,10 @@ class CalCommandReceiver {
 
     this.calEquationView.redraw();
     this.calDisplayView.redraw();
+  }
+
+  changeState(state: State): void {
+    this.calModel.setState(state);
   }
 }
 

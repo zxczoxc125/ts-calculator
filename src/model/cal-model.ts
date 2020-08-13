@@ -2,12 +2,22 @@ import AbstractHandler from "../handler/abstract-handler";
 import OperandHandler from "../handler/operand-handler";
 import NumberOperand from "../operand/number-operand";
 import Request from "../request/request";
+import State from "../state/state";
 
 class CalModel {
   private handlerList: AbstractHandler[];
+  private state: State;
 
   constructor() {
     this.initHandler();
+  }
+
+  getState(): State {
+    return this.state;
+  }
+
+  setState(state: State): void {
+    this.state = state;
   }
 
   getDisplayText(): string {
