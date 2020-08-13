@@ -73,14 +73,6 @@ class CalCommandReceiver {
       ));
     }
 
-
-
-
-    // FIXME: 두번째 이상 연산자 소수점 가능하게
-
-
-
-
     this.calEquationView.redraw();
   }
 
