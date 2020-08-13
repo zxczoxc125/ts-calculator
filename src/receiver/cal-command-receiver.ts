@@ -62,7 +62,6 @@ class CalCommandReceiver {
         ));
       } else {
         lastHandler.setOperand(new NumberOperand(actionCommand));
-        
       }
     } else {
       const lastValue: string = lastHandler.getOperand().getValue();
