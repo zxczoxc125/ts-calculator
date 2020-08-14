@@ -5,26 +5,10 @@ import StateView from "../app/state-view";
 import CalModel from "../model/cal-model";
 
 abstract class IContext {
-  protected calDisplayView: CalDisplayView;
-  protected calEquationView: CalEquationView;
-  protected stateView: StateView;
-  protected calModel: CalModel;
-
-  abstract changeState(state: State): void;
-
-  abstract setCalDisplayView(calDisplayView: CalDisplayView): void;
-  
-  abstract setCalEquationView(calEquationView: CalEquationView): void;
-  
-  abstract setStateView(stateView: StateView): void;
-  
-  abstract setCalModel(calmodel: CalModel): void;
-  
-  abstract actionOperator(actionCommand: string): void;
-  
-  abstract actionNumber(actionCommand: string): void;
-  
-  abstract actionEqual(): void;
+  private calDisplayView: CalDisplayView;
+  private calEquationView: CalEquationView;
+  private stateView: StateView;
+  private calModel: CalModel;
 
   getCalDisplayView(): CalDisplayView {
     return this.calDisplayView;
@@ -41,6 +25,30 @@ abstract class IContext {
   getCalModel(): CalModel {
     return this.calModel;
   }
+
+  setCalDisplayView(calDisplayView: CalDisplayView): void {
+    this.calDisplayView = calDisplayView;
+  }
+
+  setCalEquationView(calEquationView: CalEquationView): void {
+    this.calEquationView = calEquationView;
+  }
+
+  setStateView(stateView: StateView): void {
+    this.stateView = stateView;
+  }
+
+  setCalModel(calmodel: CalModel): void {
+    this.calModel = calmodel;
+  }
+
+  abstract changeState(state: State): void;
+  
+  abstract actionOperator(actionCommand: string): void;
+  
+  abstract actionNumber(actionCommand: string): void;
+  
+  abstract actionEqual(): void;
 }
 
 export default IContext;
