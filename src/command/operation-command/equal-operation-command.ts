@@ -1,8 +1,8 @@
-import AbstractCommand from "./abstract-command";
+import AbstractCommand from "../abstract-command";
 
 class EqualOperationCommand extends AbstractCommand {
   execute(): void {
-    this.receiver.actionEqual();
+    this.getReceiver().actionEqual();
   }
 }
 

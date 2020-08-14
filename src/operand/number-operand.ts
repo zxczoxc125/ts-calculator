@@ -1,7 +1,7 @@
 import AbstractOperand from "./abstract-operand";
 
 class NumberOperand extends AbstractOperand {
-  protected input: string;
+  private input: string;
 
   constructor(input: string) {
     super();

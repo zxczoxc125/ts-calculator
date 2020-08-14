@@ -2,11 +2,11 @@ import AbstractFunctionOperand from "./abstract-function-operand";
 
 class FracFunctionOperand extends AbstractFunctionOperand {
   getValue(): string {
-    return String(1 / Number(this.operand.getValue()));
+    return String(1 / Number(this.getOperand().getValue()));
   }
 
   getDesc(): string {
-    return `Frac(${this.operand.getDesc()})`;
+    return `Frac(${this.getOperand().getDesc()})`;
   }
 }
 
