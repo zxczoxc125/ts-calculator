@@ -1,4 +1,4 @@
-import AbstractCommand from "./abstract-command";
+import AbstractCommand from "../abstract-command";
 
 class MultiplyOperationCommand extends AbstractCommand {
   execute(): void {

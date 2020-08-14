@@ -1,4 +1,4 @@
-import AbstractCommand from "./abstract-command";
+import AbstractCommand from "../abstract-command";
 
 class EqualOperationCommand extends AbstractCommand {
   execute(): void {
