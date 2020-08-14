@@ -13,27 +13,27 @@ import SubstractOperationHandler from "../handler/opration-handler/substract-ope
 import DevideOperationHandler from "../handler/opration-handler/devide-operation-handler";
 import Request from "../request/request";
 import CalDisplayView from "../app/cal-display-view";
+import InputState from "./input-state";
 import OperatorState from "./operator-state";
-import EqualState from "./equal-state";
 
-class InputState extends State {
-  private static instance: InputState;
+class EqualState extends State {
+  private static instance: EqualState;
 
   constructor() {
     super();
-    this.stateText = '[Input-State]';
+    this.stateText = '[Equal-State]';
 
-    if (InputState.instance) {
-      return InputState.instance;
+    if (EqualState.instance) {
+      return EqualState.instance;
     }
-    InputState.instance = this;
+    EqualState.instance = this;
   }
 
-  static getInstance(): InputState {
-    if (!InputState.instance) {
-      InputState.instance = new InputState();
+  static getInstance(): EqualState {
+    if (!EqualState.instance) {
+      EqualState.instance = new EqualState();
     }
-    return InputState.instance;
+    return EqualState.instance;
   }
 
   handleAction(iContext: IContext, actionCommand: string): void {
@@ -107,4 +107,4 @@ class InputState extends State {
   }
 }
 
-export default InputState;
+export default EqualState;

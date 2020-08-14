@@ -33,22 +33,7 @@ class CalCommandReceiver extends IContext {
   }
 
   actionOperator(actionCommand: string): void {
-    const lastHandler: AbstractHandler = this.calModel.getLastHandler();
-
-    if (lastHandler instanceof AbstractOperationHandler && !lastHandler.hasOperand()) {
-      this.calModel.removeLastHandler();
-    }
-
-    // FIXME: if
-    if (actionCommand === '+') {
-      this.calModel.addHandler(new AddOperationHandler(null));
-    } else if (actionCommand === '-') {
-      this.calModel.addHandler(new SubstractOperationHandler(null));
-    } else if (actionCommand === '*') {
-      this.calModel.addHandler(new MultiplyOperationHandler(null));
-    } else if (actionCommand === '/') {
-      this.calModel.addHandler(new DevideOperationHandler(null));
-    }
+    this.calModel.getState().handleAction(this, actionCommand);
   }
 
   actionNumber(actionCommand: string): void {
@@ -56,16 +41,7 @@ class CalCommandReceiver extends IContext {
   }
 
   actionEqual(): void {
-    const resultRequest: Request = this.calModel.getResultRequest();
-    const newHandler: OperandHandler = new OperandHandler(
-      new NumberOperand(String(resultRequest.getResult()))
-    );
-
-    this.calModel.initHandler();
-    this.calModel.changeLastHandler(newHandler);
-
-    this.calEquationView.redraw();
-    this.calDisplayView.redraw();
+    this.calModel.getState().handleEqual(this);
   }
 
   changeState(state: State): void {

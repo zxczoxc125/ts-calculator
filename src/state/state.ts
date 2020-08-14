@@ -8,6 +8,10 @@ abstract class State {
   }
 
   abstract handleNumber(iContext: IContext, actionCommand: string): void;
+
+  abstract handleAction(iContext: IContext, actionCommand: string): void;
+
+  abstract handleEqual(iContext: IContext): void;
 }
 
 export default State;
