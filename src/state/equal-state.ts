@@ -1,7 +1,7 @@
 import State from "./state";
 import AbstractHandler from "../handler/abstract-handler";
 import AbstractOperationHandler from "../handler/opration-handler/abstract-operation-handler";
-import { getStringNumber } from "../util/util";
+import { getStringNumber, getStringNumberOnBack } from "../util/util";
 import NumberOperand from "../operand/number-operand";
 import OperandHandler from "../handler/operand-handler";
 import IContext from "./i-context";
@@ -104,6 +104,24 @@ class EqualState extends State {
     calDisplayView.redraw();
 
     iContext.changeState(EqualState.getInstance());
+  }
+
+  handleBack(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new NumberOperand(getStringNumberOnBack(lastValue))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
   }
 }
 

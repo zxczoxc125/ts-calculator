@@ -4,3 +4,7 @@ export const getStringNumber: Function = (prevStr: string, addStr: string): stri
   }
   return prevStr + addStr;
 }
+
+export const getStringNumberOnBack: Function = (orgStr: string) => {
+  return orgStr ? orgStr.slice(0, orgStr.length - 1) : '';
+}
