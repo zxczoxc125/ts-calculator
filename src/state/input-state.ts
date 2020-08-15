@@ -107,6 +107,23 @@ class InputState extends State {
     iContext.changeState(EqualState.getInstance());
   }
 
+  handleClearError(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new NumberOperand('')
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
   handleBack(iContext: IContext): void {
     const calModel: CalModel = iContext.getCalModel();
     const lastHandler: AbstractHandler = calModel.getLastHandler();

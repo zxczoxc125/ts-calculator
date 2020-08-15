@@ -19,6 +19,10 @@ class CalCommandReceiver extends IContext {
     this.getStateView().redraw();
   }
 
+  actionClearError(): void {
+    this.getCalModel().getState().handleClearError(this);
+  }
+
   actionBack(): void {
     this.getCalModel().getState().handleBack(this);
   }

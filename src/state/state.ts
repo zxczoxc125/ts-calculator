@@ -13,7 +13,7 @@ abstract class State {
 
   abstract handleEqual(iContext: IContext): void;
 
-  // abstract handleClearError(iContext: IContext): void;
+  abstract handleClearError(iContext: IContext): void;
 
   // abstract handleClear(iContext: IContext): void;
 
