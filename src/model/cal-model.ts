@@ -41,7 +41,7 @@ class CalModel {
 
   initHandler(): void {
     const operandHandler: OperandHandler
-      = new OperandHandler(new NumberOperand('0'));
+      = new OperandHandler(new NumberOperand(''));
     this.handlerList = [operandHandler];
   }
 
