@@ -12,6 +12,9 @@ import EqualOperationCommand from "../command/operation-command/equal-operation-
 import NumberCommand from "../command/number-command";
 import StateView from "./state-view";
 import InputState from "../state/input-state";
+import ClearErrorCommand from "../command/clear-error-command";
+import ClearCommand from "../command/clear-command";
+import BackCommand from "../command/back-command";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -70,6 +73,12 @@ class CalMainFrame {
         calCommand = new DevideOperationCommand(calCommandReceiver);
       } else if (actionCommand === '=') {
         calCommand = new EqualOperationCommand(calCommandReceiver);
+      } else if (actionCommand === 'CE') {
+        calCommand = new ClearErrorCommand(calCommandReceiver);
+      } else if (actionCommand === 'C') {
+        calCommand = new ClearCommand(calCommandReceiver);
+      } else if (actionCommand === 'BACK') {
+        calCommand = new BackCommand(calCommandReceiver);
       } else {
         calCommand = new NumberCommand(calCommandReceiver, actionCommand);
       }
