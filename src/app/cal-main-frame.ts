@@ -15,6 +15,10 @@ import InputState from "../state/input-state";
 import ClearErrorCommand from "../command/clear-error-command";
 import ClearCommand from "../command/clear-command";
 import BackCommand from "../command/back-command";
+import SqrtFunctionCommand from "../command/function-command/sqrt-function-command";
+import PowFunctionCommand from "../command/function-command/pow-function-command";
+import FracFunctionCommand from "../command/function-command/frac-function-command";
+import PercentFunctionCommand from "../command/function-command/percent-function-command";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -79,6 +83,14 @@ class CalMainFrame {
         calCommand = new ClearCommand(calCommandReceiver);
       } else if (actionCommand === 'BACK') {
         calCommand = new BackCommand(calCommandReceiver);
+      }  else if (actionCommand === 'SQRT') {
+        calCommand = new SqrtFunctionCommand(calCommandReceiver);
+      } else if (actionCommand === 'POW') {
+        calCommand = new PowFunctionCommand(calCommandReceiver);
+      } else if (actionCommand === 'FRAC') {
+        calCommand = new FracFunctionCommand(calCommandReceiver);
+      } else if (actionCommand === '%') {
+        calCommand = new PercentFunctionCommand(calCommandReceiver);
       } else {
         calCommand = new NumberCommand(calCommandReceiver, actionCommand);
       }

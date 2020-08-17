@@ -18,6 +18,14 @@ abstract class State {
   abstract handleClear(iContext: IContext): void;
 
   abstract handleBack(iContext: IContext): void;
+
+  abstract handleSqrt(iContext: IContext): void;
+  
+  abstract handlePow(iContext: IContext): void;
+
+  abstract handleFrac(iContext: IContext): void;
+
+  abstract handlePercent(iContext: IContext): void;
 }
 
 export default State;

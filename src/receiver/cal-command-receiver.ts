@@ -30,6 +30,22 @@ class CalCommandReceiver extends IContext {
   actionBack(): void {
     this.getCalModel().getState().handleBack(this);
   }
+
+  actionSqrt(): void {
+    this.getCalModel().getState().handleSqrt(this);
+  }
+
+  actionPow(): void {
+    this.getCalModel().getState().handlePow(this);
+  }
+
+  actionFrac(): void {
+    this.getCalModel().getState().handleFrac(this);
+  }
+
+  actionPercent(): void {
+    this.getCalModel().getState().handlePercent(this);
+  }
 }
 
 export default CalCommandReceiver;

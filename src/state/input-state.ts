@@ -16,6 +16,10 @@ import CalDisplayView from "../app/cal-display-view";
 import OperatorState from "./operator-state";
 import EqualState from "./equal-state";
 import AbstractOperand from "../operand/abstract-operand";
+import SqrtFunctionOperand from "../operand/function-operand/sqrt-function-operand";
+import PowFunctionOperand from "../operand/function-operand/pow-function-operand";
+import FracFunctionOperand from "../operand/function-operand/frac-function-operand";
+import PercentFunctionOperand from "../operand/function-operand/percent-function-operand";
 
 class InputState extends State {
   private static instance: InputState;
@@ -144,6 +148,78 @@ class InputState extends State {
         const lastValue: string = lastHandler.getOperand().getValue();
         calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
           new NumberOperand(getStringNumberOnBack(lastValue))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
+  handleSqrt(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new SqrtFunctionOperand(new NumberOperand(lastValue))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
+  handlePow(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new PowFunctionOperand(new NumberOperand(lastValue))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
+  handleFrac(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new FracFunctionOperand(new NumberOperand(lastValue))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
+  handlePercent(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new PercentFunctionOperand(new NumberOperand(lastValue))
         ));
       }
     }
