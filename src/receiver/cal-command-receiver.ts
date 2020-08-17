@@ -23,6 +23,10 @@ class CalCommandReceiver extends IContext {
     this.getCalModel().getState().handleClearError(this);
   }
 
+  actionClear(): void {
+    this.getCalModel().getState().handleClear(this);
+  }
+
   actionBack(): void {
     this.getCalModel().getState().handleBack(this);
   }

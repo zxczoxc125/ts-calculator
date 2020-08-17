@@ -124,6 +124,16 @@ class InputState extends State {
     iContext.changeState(InputState.getInstance());
   }
 
+  handleClear(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    calModel.initHandler();
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
+
   handleBack(iContext: IContext): void {
     const calModel: CalModel = iContext.getCalModel();
     const lastHandler: AbstractHandler = calModel.getLastHandler();

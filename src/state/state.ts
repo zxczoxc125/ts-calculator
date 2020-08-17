@@ -15,7 +15,7 @@ abstract class State {
 
   abstract handleClearError(iContext: IContext): void;
 
-  // abstract handleClear(iContext: IContext): void;
+  abstract handleClear(iContext: IContext): void;
 
   abstract handleBack(iContext: IContext): void;
 }
