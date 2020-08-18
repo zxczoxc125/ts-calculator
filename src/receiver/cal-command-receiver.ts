@@ -46,6 +46,10 @@ class CalCommandReceiver extends IContext {
   actionPercent(): void {
     this.getCalModel().getState().handlePercent(this);
   }
+
+  actionPlusMinus(): void {
+    this.getCalModel().getState().handlePlusMinus(this);
+  }
 }
 
 export default CalCommandReceiver;

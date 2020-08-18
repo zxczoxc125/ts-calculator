@@ -226,6 +226,24 @@ class OperatorState extends State {
     calEquationView.redraw();
     iContext.changeState(InputState.getInstance());
   }
+
+  handlePlusMinus(iContext: IContext): void {
+    const calModel: CalModel = iContext.getCalModel();
+    const lastHandler: AbstractHandler = calModel.getLastHandler();
+    const calEquationView: CalEquationView = iContext.getCalEquationView();
+
+    if (!(lastHandler instanceof NumberOperand)) {
+      if (lastHandler.getOperand()) {
+        const lastValue: string = lastHandler.getOperand().getValue();
+        calModel.changeLastHandler(new (Object.getPrototypeOf(lastHandler)).constructor(
+          new NumberOperand(String(Number(lastValue) * (-1)))
+        ));
+      }
+    }
+
+    calEquationView.redraw();
+    iContext.changeState(InputState.getInstance());
+  }
 }
 
 export default OperatorState;

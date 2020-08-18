@@ -26,6 +26,8 @@ abstract class State {
   abstract handleFrac(iContext: IContext): void;
 
   abstract handlePercent(iContext: IContext): void;
+ 
+  abstract handlePlusMinus(iContext: IContext): void;
 }
 
 export default State;

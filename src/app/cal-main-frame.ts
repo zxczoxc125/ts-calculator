@@ -19,6 +19,7 @@ import SqrtFunctionCommand from "../command/function-command/sqrt-function-comma
 import PowFunctionCommand from "../command/function-command/pow-function-command";
 import FracFunctionCommand from "../command/function-command/frac-function-command";
 import PercentFunctionCommand from "../command/function-command/percent-function-command";
+import PlusMinusCommand from "../command/plus-minus-command";
 
 class CalMainFrame {
   constructor(calculatorDivId: string) {
@@ -91,6 +92,8 @@ class CalMainFrame {
         calCommand = new FracFunctionCommand(calCommandReceiver);
       } else if (actionCommand === '%') {
         calCommand = new PercentFunctionCommand(calCommandReceiver);
+      } else if (actionCommand === '+-') {
+        calCommand = new PlusMinusCommand(calCommandReceiver);
       } else {
         calCommand = new NumberCommand(calCommandReceiver, actionCommand);
       }
