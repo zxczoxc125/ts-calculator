@@ -3,8 +3,8 @@
 ## # 미리보기
 
 <div>
-  <img src="./ts-calculator1.PNG" width="40%">
-  <img src="./ts-calculator2.PNG" width="40%">
+  <img src="./ts-calculator1.PNG" width="30%">
+  <img src="./ts-calculator2.PNG" width="30%">
 </div>
 
 ## # 적용된 패턴
