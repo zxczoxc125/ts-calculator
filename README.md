@@ -2,9 +2,9 @@
 
 ## # 미리보기
 
-<div style="display: flex; justify-content: center">
-  <img src="./ts-calculator1.PNG">
-  <img src="./ts-calculator2.PNG">
+<div>
+  <img src="./ts-calculator1.PNG" width="50%">
+  <img src="./ts-calculator2.PNG" width="50%">
 </div>
 
 ## # 적용된 패턴
