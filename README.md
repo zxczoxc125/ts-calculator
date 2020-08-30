@@ -2,8 +2,10 @@
 
 ## # 미리보기
 
-<img src="./ts-calculator1.PNG" style="max-width: 40%;">
-<img src="./ts-calculator2.PNG" style="max-width: 40%;">
+<div style="display: flex; justify-content: center">
+  <img src="./ts-calculator1.PNG">
+  <img src="./ts-calculator2.PNG">
+</div>
 
 ## # 적용된 패턴
 
